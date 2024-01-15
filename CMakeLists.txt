@@ -1,8 +1,8 @@
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.4...3.20 FATAL_ERROR)
 project(hello_project)
 
 set(CMAKE_VERBOSE_MAKEFILE ON)
-set(O -O0)
+set(O -O0 -g -Wall)
 add_compile_options(-std=c++20 ${O})
 
 add_library(
