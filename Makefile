@@ -92,6 +92,7 @@ SourceMain_XXX := \
 	test2.cpp \
 	test3.cpp \
 	test5_MyFile.cpp \
+	test6.c \
 
 CXXFLAGS_XXX := \
 	$(CommonFlags_XXX) \
@@ -107,8 +108,10 @@ Object_XXX := $(patsubst %.c, $(ObjectDir)/$(SourceDir_XXX)/%.o, $(Source_XXX))
 Object_XXX := $(patsubst %.cpp, $(ObjectDir)/$(SourceDir_XXX)/%.o, $(Object_XXX))
 Object_XXX := $(patsubst %.S, $(ObjectDir)/$(SourceDir_XXX)/%.o, $(Object_XXX))
 
-ObjectMain_XXX := $(patsubst %.cpp, $(ObjectDir)/$(SourceDir_XXX)/%.o, $(SourceMain_XXX))
-BinaryMain_XXX := $(patsubst %.cpp, $(ObjectDir)/$(SourceDir_XXX)/%, $(SourceMain_XXX))
+ObjectMain_XXX := $(patsubst %.c, $(ObjectDir)/$(SourceDir_XXX)/%.o, $(SourceMain_XXX))
+ObjectMain_XXX := $(patsubst %.cpp, $(ObjectDir)/$(SourceDir_XXX)/%.o, $(ObjectMain_XXX))
+BinaryMain_XXX := $(patsubst %.c, $(ObjectDir)/$(SourceDir_XXX)/%, $(SourceMain_XXX))
+BinaryMain_XXX := $(patsubst %.cpp, $(ObjectDir)/$(SourceDir_XXX)/%, $(BinaryMain_XXX))
 AR_XXX := $(ObjectDir)/$(SourceDir_XXX)/libXXX.a
 
 Depand_XXX := $(Object_XXX:.o=.d) $(ObjectMain_XXX:.o=.d)

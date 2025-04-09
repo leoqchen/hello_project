@@ -66,3 +66,17 @@ target_compile_options(
   PUBLIC
   # xxx
 )
+
+add_executable(
+  test6
+  src/test6.c
+)
+target_link_libraries(
+  test6
+  # xxx
+)
+target_compile_options(
+  test6
+  PUBLIC
+  # xxx
+)
